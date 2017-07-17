@@ -99,15 +99,18 @@ form{
   text-align: center;
 }
 
-.btn-custom {
+#ok {
   background-color: #3498DB;
-    color: #ffffff;
+}
+
+#welcome {
+  font-weight: bold;
+  color: #3498DB;
 }
 
 img{
   width: 20vh;
   margin-right: 2px;
-  text-align: center;
   margin-top: 5px;
 }
 
