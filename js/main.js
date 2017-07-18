@@ -25,13 +25,21 @@ function shuffle(){
   }
 }
 
+var init = 0;
+var tab_result=[];
+
 for (let i = 0; i < img.length; i++) {
   img[i].addEventListener("click", function() {
     img[i].src = "";
     img[i].style.backgroundColor = color[i];
 
-    var first = 0;
-    var tab_result =[];
-    console.log(tab_result[0]);
+    tab_result.push(color[i]);
+    init++;
+  if (tab_result[0]==tab_result[1]){
+    alert("perdu");
+    // console.log(tab_result[init]);
+    // console.log(tab_result[init+1]);
+    //console.log(tab_result[init+1]);
+  }
   });
 }
