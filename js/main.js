@@ -16,30 +16,37 @@ ok.onclick = function() {
   ok.style.display = 'none';
 }
 
-function shuffle(){
-  for(place=color.length-1; place>=1; place--){
-  var choix= Math.floor(Math.random()*(place+1));
-  var melange = color[place];
-  color[place]=color[choix];
-  color[choix]=melange;
+function shuffle() {
+  for (place = color.length - 1; place >= 1; place--) {
+    var choix = Math.floor(Math.random() * (place + 1));
+    var melange = color[place];
+    color[place] = color[choix];
+    color[choix] = melange;
   }
 }
 
 var init = 0;
-var tab_result=[];
+var tabResult = [];
 
 for (let i = 0; i < img.length; i++) {
   img[i].addEventListener("click", function() {
     img[i].src = "";
     img[i].style.backgroundColor = color[i];
 
-    tab_result.push(color[i]);
+    tabResult.push(color[i]);
     init++;
-  if (tab_result[0]==tab_result[1]){
-    alert("perdu");
-    // console.log(tab_result[init]);
-    // console.log(tab_result[init+1]);
-    //console.log(tab_result[init+1]);
-  }
+    if (tabResult.length == 2) {
+      if (tabResult[0] == tabResult[1]) {
+        console.log(tabResult);
+        alert("gagné");
+        tabResult = [];
+      } else if (tabResult[0] !== tabResult[1]) {
+        alert('perdu');
+        img[i].src = "img/plage.jpg" ;
+        img[i-1].src = "img/plage.jpg" ;
+        console.log(img[i]);
+        tabResult = [];
+      }
+    }
   });
 }
