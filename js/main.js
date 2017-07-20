@@ -12,8 +12,8 @@ var color = ["#3498DB", "#FF2D00", "#2E0927", "#04756F", "#85DB18", "#94090D", "
 var place;
 var init = 0;
 var tabResult = [];
-
-
+var plage = img[0].src;
+var clickLock = 0;
 // FUNCTIONS
 
 function shuffle() {
@@ -29,32 +29,36 @@ function shuffle() {
 function setBackgroundColor() {
   for (let i = 0; i < img.length; i++) {
     img[i].onclick = function() {
-      img[i].src = "";
-      img[i].style.backgroundColor = color[i];
+      if (img[i].src == plage && clickLock == 0) {
 
-      tabResult.push(i);
-      init++;
+        img[i].src = "";
 
-      if (tabResult.length == 2) {
-        if (color[tabResult[0]] == color[tabResult[1]]) {
-          console.log(color[tabResult[0]]);
-          score.innerHTML="YOU WON !";
-          // clics.innerHTML = (tabResult.length);
-          tabResult = [];
-        } else if (tabResult[0] !== tabResult[1]) {
-          alert('perdu');
-          // score.innerHTML="YOU LOSE !";
-          img[i].src = "img/plage.jpg";
-          img[tabResult[0]].src = "img/plage.jpg";
-          console.log(img[tabResult[0]]);
-          // clics.innerHTML = (tabResult.length);
-
-          tabResult = [];
+        img[i].style.backgroundColor = color[i];
+        tabResult.push(i);
+        init++;
+        if (tabResult.length == 2) {
+          clickLock = 1;
+          if (color[tabResult[0]] !== color[tabResult[1]]) {
+            // console.log(color[tabResult[0]] + " " + color[tabResult[1]]);
+            setTimeout(function() {
+              alert('YOU LOSE !');
+              img[i].src = "img/plage.jpg";
+              img[tabResult[0]].src = "img/plage.jpg";
+              tabResult = [];
+              clickLock = 0;
+            }, 1000);
+          } else {
+            // console.log(color[tabResult[0]]);
+            score.style.color = "#3498DB";
+            score.innerHTML = "YOU WON !";
+            tabResult = [];
+          }
         }
       }
     }
   }
 }
+
 
 function name() {
   value = pseudo.value;
