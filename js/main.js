@@ -78,34 +78,3 @@ playGame();
 
 
 ok.onclick = name;
-
-
-
-
-
-
-
-
-
-// for (let i = 0; i < img.length; i++) {
-//   img[i].addEventListener("click", function() {
-//     img[i].src = "";
-//     img[i].style.backgroundColor = color[i];
-//
-//     tabResult.push(color[i]);
-//     init++;
-//     if (tabResult.length == 2) {
-//       if (tabResult[0] == tabResult[1]) {
-//         console.log(tabResult);
-//         alert("gagné");
-//         tabResult = [];
-//       } else if (tabResult[0] !== tabResult[1]) {
-//         alert('perdu');
-//         img[i].src = "img/plage.jpg" ;
-//         img[i-1].src = "img/plage.jpg" ;
-//         console.log(img[i]);
-//         tabResult = [];
-//       }
-//     }
-//   });
-// }
